@@ -11,7 +11,7 @@ import {
 
 const CredentialType = new GraphQLObjectType({
     name: 'Credentials',
-    description: 'Add later...',
+    description: 'User\'s credentials such as password and email address.',
     fields: () => ({
         email: {
             type: GraphQLString,
@@ -26,7 +26,7 @@ const CredentialType = new GraphQLObjectType({
 
 const LocationType = new GraphQLObjectType({
     name: 'Location',
-    description: 'Add later...',
+    description: 'User\'s location information including street address, city, state, and zip.',
     fields: () => ({
         address: {
             type: GraphQLString,
@@ -49,7 +49,7 @@ const LocationType = new GraphQLObjectType({
 
 const OccupationType = new GraphQLObjectType({
     name: 'Occupation',
-    description: 'Add later...',
+    description: 'User\'s occupational data including job title and salary.',
     fields: () => ({
         title: {
             type: GraphQLString,
@@ -66,7 +66,7 @@ const OccupationType = new GraphQLObjectType({
 
 const PersonType = new GraphQLObjectType({
     name: 'Person',
-    description: 'A person object',
+    description: 'A person object.',
     fields: () => ({
         firstName: {
             type: GraphQLString,
@@ -113,8 +113,7 @@ export default new GraphQLSchema({
                 args: {
                     id: { type: GraphQLInt }
                 },
-                resolve: (root, args) =>
-                    Users.findOne({id: args.id})
+                resolve: (root, args) => Users.findOne({id: args.id})
             }
         })
     })
