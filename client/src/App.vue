@@ -1,28 +1,34 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <div class="display-3 text-center">
+      Welcome to this Vue-Apollo demo!
+    </div>
+    <div v-if="$apollo.loading" class="display-4 text-center">
+      Loading...
+    </div>
+    <div
+     class="container">
+      {{personData.firstName}} {{personData.lastName}}
+      <br>
+      Age - {{personData.age}}
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import { PersonQuery } from './queries/graphql'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data: () => ({
+    personData: [],
+    loading: 0
+  }),
+  apollo: {
+    personData: {
+      query: PersonQuery(3),
+      update: ({ person }) => person
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

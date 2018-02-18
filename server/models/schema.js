@@ -105,7 +105,7 @@ const PersonType = new GraphQLObjectType({
 
 export default new GraphQLSchema({
     query: new GraphQLObjectType({
-        name: 'Query',
+        name: 'PersonQuery',
         description: 'Root query',
         fields: () => ({
             person: {
