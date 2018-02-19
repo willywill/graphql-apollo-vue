@@ -80,6 +80,10 @@ const PersonType = new GraphQLObjectType({
             type: GraphQLInt,
             resolve: person => person.age
         },
+        avatar: {
+            type: GraphQLString,
+            resolve: person => person.avatar
+        },
         phoneNumber: {
             type: GraphQLString,
             resolve: person => person.phoneNumber

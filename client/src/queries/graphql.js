@@ -6,6 +6,7 @@ export const PersonQuery = (id) => gql`
         firstName,
         lastName,
         age,
+        avatar,
         credentials {
           email,
           password

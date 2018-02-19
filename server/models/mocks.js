@@ -19,6 +19,7 @@ class MockData {
                     firstName: firstName,
                     lastName: lastName,
                     age: faker.random.number({ min: 18, max: 50 }),
+                    avatar: faker.internet.avatar(),
                     phoneNumber: faker.phone.phoneNumberFormat(0),
                     weight: faker.random.number({ min: 150, max: 250 }) + 'lbs.',
                     credentials: {

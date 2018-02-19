@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="display-3 text-center">
+    <div class="text-xs-center">
       Welcome to this Vue-Apollo demo!
     </div>
     <div v-if="$apollo.loading" class="display-4 text-center">
@@ -11,6 +11,7 @@
       {{personData.firstName}} {{personData.lastName}}
       <br>
       Age - {{personData.age}}
+      <img :src="personData.avatar" width="64" height="64" style="border-radius: 50%">
     </div>
   </div>
 </template>
@@ -26,9 +27,16 @@ export default {
   }),
   apollo: {
     personData: {
-      query: PersonQuery(3),
+      query: PersonQuery(1),
       update: ({ person }) => person
     }
   }
 }
 </script>
+
+<style>
+#app
+{
+  font-family: 'Roboto', sans-serif
+}
+</style>
