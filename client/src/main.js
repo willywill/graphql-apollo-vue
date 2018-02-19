@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { process } from './config'
 import Vue from 'vue'
 import App from './App'
 
@@ -14,7 +15,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.config.productionTip = false
 
 const apolloClient = new ApolloClient({
-  link: new HttpLink({ uri: 'http://localhost:8000/graphql' }),
+  link: new HttpLink({ uri: process.env.GRAPHQL_ENDPOINT }),
   cache: new InMemoryCache().restore(window.__APOLLO_STATE__ || {}),
   connectToDevTools: true
 })
